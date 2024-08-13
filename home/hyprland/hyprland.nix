@@ -12,7 +12,7 @@
     grim
     slurp
     wl-clipboard
-    # cliphist
+    cliphist
     wf-recorder
     glib
     wayland

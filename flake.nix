@@ -13,7 +13,7 @@
       url = "github:catppuccin/starship";
       flake = false;
     };
-
+    catppuccin.url = "github:catppuccin/nix";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
   };
 
@@ -23,10 +23,11 @@
     ...
   } @ inputs: let
     username = "piper";
+    hostname = "amethyst";
   in {
     nixosConfigurations = {
       amethyst = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit self inputs username;};
+        specialArgs = {inherit self inputs username hostname;};
         modules = [
           (import ./hosts/amethyst)
           (import ./hosts/shared/bootloader.nix)

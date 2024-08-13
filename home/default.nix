@@ -30,5 +30,11 @@
     ++ [(import ./vscodium.nix)]
     ++ [(import ./waybar)]
     ++ [(import ./wofi)]
-    ++ [(import ./zsh.nix)];
+    ++ [(import ./zsh.nix)]
+    ++ [
+      {
+        catppuccin.enable = true;
+        catppuccin.accent = "lavender";
+      }
+    ];
 }

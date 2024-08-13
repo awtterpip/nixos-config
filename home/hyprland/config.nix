@@ -7,6 +7,9 @@
       monitor=,highres,auto,1
 
       # autostart
+      exec-once = wl-clipboard-history -t   
+      exec-once = wl-paste --watch cliphist store    
+      exec-once = rm \"$HOME/.cache/cliphist/db\"   #it'll delete history at every restart    
       exec-once = systemctl --user import-environment &
       exec-once = hash dbus-update-activation-environment 2>/dev/null &
       exec-once = dbus-update-activation-environment --systemd &
@@ -161,6 +164,7 @@
       bind = $mainMod, G,exec, $HOME/.local/bin/toggle_layout
       bind = $mainMod, W,exec, pkill wofi || wallpaper-picker
       bind = $mainMod SHIFT, W, exec, floorp
+      bind = $mainMod,V,exec,cliphist list | wofi --show dmenu -H 600 -W 900   | cliphist decode | wl-copy
       
       # screenshot
       bind = $mainMod, Print, exec, grimblast --notify --cursor save area ~/Pictures/$(date +'%Y-%m-%d-At-%Ih%Mm%Ss').png

@@ -32,9 +32,14 @@
     lutris
     sunshine
     moonlight-qt
-    mangohud
+    unityhub
+    chromium
     sidequest
     ncspot
+
+    # game things
+    wlx-overlay-s
+    mangohud
   ];
 
   time.timeZone = "America/Chicago";

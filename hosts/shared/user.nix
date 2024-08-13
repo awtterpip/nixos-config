@@ -2,6 +2,7 @@
   pkgs,
   inputs,
   username,
+  hostname,
   self,
   ...
 }: {
@@ -9,7 +10,7 @@
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
-    extraSpecialArgs = {inherit inputs username self;};
+    extraSpecialArgs = {inherit inputs username hostname self;};
     users.${username} = {
       imports = [(import ./../../home)];
       home.username = "${username}";
