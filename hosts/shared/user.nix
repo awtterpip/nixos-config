@@ -2,13 +2,14 @@
   pkgs,
   inputs,
   username,
+  self,
   ...
 }: {
   imports = [inputs.home-manager.nixosModules.home-manager];
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
-    extraSpecialArgs = {inherit inputs username;};
+    extraSpecialArgs = {inherit inputs username self;};
     users.${username} = {
       imports = [(import ./../../home)];
       home.username = "${username}";

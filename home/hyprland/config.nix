@@ -1,4 +1,4 @@
-{...}: {
+{self, ...}: {
   wayland.windowManager.hyprland = {
     extraConfig = "
       $mainMod = SUPER
@@ -12,7 +12,7 @@
       exec-once = dbus-update-activation-environment --systemd &
       exec-once = nm-applet &
       exec-once = wl-paste --primary --watch wl-copy --primary --clear
-      exec-once = swaybg -m fill -i $(find ~/Pictures/wallpapers/ -maxdepth 1 -type f) &
+      exec-once = swaybg -m fill -i '${self}/wallpaper.jpg' &
       exec-once = sleep 1 && swaylock
       exec-once = hyprctl setcursor Nordzy-cursors 22 &
       exec-once = waybar &
@@ -70,7 +70,6 @@
       }
 
       master {
-        new_is_master = true
         special_scale_factor = 1
         no_gaps_when_only = false
       }
@@ -145,6 +144,7 @@
       bind = $mainMod SHIFT, Return, exec, kitty --start-as=fullscreen -o 'font_size=16'
       bind = $mainMod, B, exec, hyprctl dispatch exec '[workspace 1 silent] floorp'
       bind = $mainMod, Q, killactive,
+      bind = $mainMod SHIFT, Q,exit
       bind = $mainMod, F, fullscreen, 0
       bind = $mainMod SHIFT, F, fullscreen, 1
       bind = $mainMod, Space, togglefloating,

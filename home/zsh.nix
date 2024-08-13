@@ -37,8 +37,8 @@
       cdnix = "cd ~/.nixos && codium ~/.nixos";
       ns = "nix-shell --run zsh";
       nix-shell = "nix-shell --run zsh";
-      nix-switch = "sudo nixos-rebuild switch --impure --flake ~/.nixos#nixos";
-      nix-switchu = "sudo nixos-rebuild switch --upgrade --impure --flake ~/.nixos#nixos";
+      nix-switch = "sudo nixos-rebuild switch --impure --flake ~/.nixos#amethyst";
+      nix-switchu = "sudo nixos-rebuild switch --upgrade --impure --flake ~/.nixos#amethyst";
       nix-flake-update = "sudo nix flake update ~/.nixos#";
       nix-clean = "sudo nix-collect-garbage && sudo nix-collect-garbage -d && sudo rm /nix/var/nix/gcroots/auto/* && nix-collect-garbage && nix-collect-garbage -d";
       # nix-clean = "sudo nix-collect-garbage -d";

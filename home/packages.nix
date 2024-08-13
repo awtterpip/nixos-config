@@ -17,10 +17,10 @@
     prismlauncher # minecraft launcher
     ripgrep # grep replacement
     toipe # typing test in the terminal
-    cinnamon.nemo-with-extensions # file manager
+    nemo-with-extensions # file manager
     yazi # terminal file manager
     yt-dlp
-    gnome.zenity
+    zenity
     steam-run
     # C / C++
     gcc
