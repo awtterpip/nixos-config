@@ -8,6 +8,7 @@
     ++ [(import ./bat.nix)]
     ++ [(import ./btop.nix)]
     ++ [(import ./obs.nix)]
+    ++ [(import ./dirs.nix)]
     # ++ [(import ./cava)]
     ++ [(import ./discord)] # discord with catppuccin theme
     ++ [(import ./floorp)] # firefox based browser
