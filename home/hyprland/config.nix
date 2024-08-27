@@ -7,14 +7,12 @@
       monitor=,highres,auto,1
 
       # autostart
-      exec-once = wl-clipboard-history -t   
       exec-once = wl-paste --watch cliphist store    
       exec-once = rm \"$HOME/.cache/cliphist/db\"   #it'll delete history at every restart    
       exec-once = systemctl --user import-environment &
       exec-once = hash dbus-update-activation-environment 2>/dev/null &
       exec-once = dbus-update-activation-environment --systemd &
       exec-once = nm-applet &
-      exec-once = wl-paste --primary --watch wl-copy --primary --clear
       exec-once = swaybg -m fill -i '${self}/wallpaper.jpg' &
       exec-once = sleep 1 && swaylock
       exec-once = hyprctl setcursor Nordzy-cursors 22 &
