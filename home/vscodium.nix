@@ -68,6 +68,8 @@
       "C_Cpp.vcFormat.newLine.beforeCatch" = false;
       "C_Cpp.vcFormat.indent.caseLabels" = true;
       "C_Cpp.clang_format_fallbackStyle" = "{ BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 0}";
+
+      "catppuccin.bracketMode" = "neovim";
     };
     # Keybindings
     keybindings = [
