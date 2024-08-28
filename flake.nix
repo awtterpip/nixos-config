@@ -42,6 +42,7 @@
           (import ./hosts/shared/system.nix)
           (import ./hosts/shared/user.nix)
           (import ./hosts/shared/wayland.nix)
+          (import ./hosts/shared/sunshine.nix)
         ];
       };
     };
