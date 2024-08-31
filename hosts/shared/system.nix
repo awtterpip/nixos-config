@@ -36,7 +36,8 @@
     chromium
     sidequest
     ncspot
-
+    qpwgraph
+    librepcb
     # game things
     wlx-overlay-s
     mangohud
