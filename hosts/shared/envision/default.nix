@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   programs.envision = {
     enable = true;
     openFirewall = true;

@@ -29,6 +29,7 @@
     # language servers
     nixd
     rust-analyzer
+    nixfmt-rfc-style
     # Python
     python3
 
