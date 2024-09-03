@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   ...
 }: {
@@ -25,7 +24,8 @@
     # C / C++
     gcc
     gnumake
-
+    zed-editor
+    nixd
     # Python
     python3
 
