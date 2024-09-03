@@ -24,8 +24,11 @@
     # C / C++
     gcc
     gnumake
+    # zed code editor
     zed-editor
+    # language servers
     nixd
+    rust-analyzer
     # Python
     python3
 
