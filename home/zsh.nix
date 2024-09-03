@@ -1,7 +1,5 @@
 {
   hostname,
-  config,
-  pkgs,
   ...
 }: {
   programs.zsh = {

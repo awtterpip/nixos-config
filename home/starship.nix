@@ -1,6 +1,4 @@
 {
-  lib,
-  inputs,
   ...
 }: {
   programs.starship = {

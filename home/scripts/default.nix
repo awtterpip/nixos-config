@@ -18,7 +18,7 @@
 
   show-keybinds = pkgs.writeScriptBin "show-keybinds" (builtins.readFile ./scripts/keybinds.sh);
 in {
-  home.packages = with pkgs; [
+  home.packages =  [
     wall-change
     wallpaper-picker
 
