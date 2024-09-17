@@ -1,7 +1,8 @@
 {
   pkgs,
   ...
-}: {
+}:
+{
   home.packages = with pkgs; [
     bitwise # cli tool for bit / hex manipulation
     eza # ls replacement
@@ -29,6 +30,7 @@
     # language servers
     nixd
     rust-analyzer
+    nodePackages.typescript-language-server
     nixfmt-rfc-style
     # Python
     python3
