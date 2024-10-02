@@ -20,6 +20,9 @@
     nemo-with-extensions # file manager
     yazi # terminal file manager
     yt-dlp
+    (yabridge.override { wine = pkgs.wineWowPackages.stable; })
+    yabridgectl
+    ardour
     zenity
     steam-run
     # C / C++
