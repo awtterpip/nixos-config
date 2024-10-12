@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   nix = {
     settings = {
       auto-optimise-store = true;
@@ -11,7 +10,7 @@
         "https://nix-gaming.cachix.org"
         "https://hyprland.cachix.org"
       ];
-      trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
     };
     gc = {
       automatic = true;
@@ -56,37 +55,39 @@
     overlays = [
       (final: prev: {
         envision-unwrapped = prev.envision-unwrapped.overrideAttrs (prev: {
-          version = "0-unstable-2024-09-03";
-          buildInputs =
-            with pkgs;
+          version = "0-unstable-2024-10-11";
+          buildInputs = with pkgs;
             [
               openxr-loader
+              glib
             ]
             ++ prev.buildInputs;
-          nativeBuildInputs =
-            with pkgs;
+          nativeBuildInputs = with pkgs;
             [
               git
               openxr-loader
+              glibc
             ]
             ++ prev.nativeBuildInputs;
           src = pkgs.fetchFromGitLab {
             owner = "gabmus";
             repo = "envision";
-            rev = "b63b63efaf345b02658c88b0db72dff79f29de09";
-            hash = "sha256-Edql69UN2v560c7lqDwuC8Jw2eYQyThFOh7JHzQ5n50=";
+            rev = "c36cdf548780abe9e9eb65804ee7ea0f95e4e641";
+            hash = "sha256-QFgscwRDLyu8KCCp2HsEw2PLbdvLuaf/Wn7VDnH8q1I=";
           };
           cargoDeps = pkgs.rustPlatform.importCargoLock {
             lockFile = ./envision/Cargo.lock;
             outputHashes = {
               "libmonado-rs-0.1.0" = "sha256-xztevBUaYBm5G3A0ZTb+3GV3g1IAU3SzfSS5BBqfp1Y=";
-              "openxr-0.18.0" = "sha256-ktkbhmExstkNJDYM/HYOwAwv3acex7P9SP0KMAOKhQk=";
+              # "openxr-0.18.0" = "sha256-ktkbhmExstkNJDYM/HYOfAwv3acex7P9SP0KMAOKhQk=";
             };
           };
-          postInstall = (prev.postInstall or "") + ''
-            ln -s $out/share/applications/org.gabmus.envision.Devel.desktop $out/share/applications/org.gabmus.envision.desktop
-            ln -s $out/share/metainfo/org.gabmus.envision.Devel.appdata.xml $out/share/metainfo/org.gabmus.envision.appdata.xml
-          '';
+          postInstall =
+            (prev.postInstall or "")
+            + ''
+              ln -s $out/share/applications/org.gabmus.envision.Devel.desktop $out/share/applications/org.gabmus.envision.desktop
+              ln -s $out/share/metainfo/org.gabmus.envision.Devel.appdata.xml $out/share/metainfo/org.gabmus.envision.appdata.xml
+            '';
         });
       })
     ];

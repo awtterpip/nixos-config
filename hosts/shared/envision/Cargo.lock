@@ -1452,8 +1452,9 @@ dependencies = [
 
 [[package]]
 name = "openxr"
-version = "0.18.0"
-source = "git+https://github.com/galister/openxrs?rev=af4a55d#af4a55df60125491c80c61464c824219c6019b76"
+version = "0.19.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2a2d6934d2508f94fd4cbda6c2a326f111f60ce59fd9136df6d478564397dd40"
 dependencies = [
  "libc",
  "libloading 0.8.5",
@@ -1463,8 +1464,9 @@ dependencies = [
 
 [[package]]
 name = "openxr-sys"
-version = "0.10.0"
-source = "git+https://github.com/galister/openxrs?rev=af4a55d#af4a55df60125491c80c61464c824219c6019b76"
+version = "0.11.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f10e7e38c47f2175fc39363713b656db899fa0b4a14341029702cbdfa6f44d05"
 dependencies = [
  "libc",
 ]

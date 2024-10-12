@@ -1,4 +1,5 @@
-{self, ...}: {
+{ self, ... }:
+{
   wayland.windowManager.hyprland = {
     extraConfig = "
       $mainMod = SUPER
@@ -7,8 +8,8 @@
       monitor=,highres,auto,1
 
       # autostart
-      exec-once = wl-paste --watch cliphist store    
-      exec-once = rm \"$HOME/.cache/cliphist/db\"   #it'll delete history at every restart    
+      exec-once = wl-paste --watch cliphist store
+      exec-once = rm \"$HOME/.cache/cliphist/db\"   #it'll delete history at every restart
       exec-once = systemctl --user import-environment &
       exec-once = hash dbus-update-activation-environment 2>/dev/null &
       exec-once = dbus-update-activation-environment --systemd &
@@ -61,7 +62,7 @@
       }
 
       dwindle {
-        no_gaps_when_only = false
+        # no_gaps_when_only = false
         force_split = 0
         special_scale_factor = 1.0
         split_width_multiplier = 1.0
@@ -72,13 +73,13 @@
 
       master {
         special_scale_factor = 1
-        no_gaps_when_only = false
+        # no_gaps_when_only = false
       }
 
       decoration {
         rounding = 5
         # rounding = 12
-        
+
         active_opacity = 0.90;
         inactive_opacity = 0.90;
         fullscreen_opacity = 1.0;
@@ -88,19 +89,19 @@
 
           size = 4
           passes = 2
-          
+
           brightness = 1
           contrast = 1.300000
           ignore_opacity = true
           noise = 0.011700
-          
+
           new_optimizations = true
-          
+
           xray = true
         }
 
         drop_shadow = true;
-        
+
         shadow_ignore_window = true;
         shadow_offset = 0 2
         shadow_range = 20
@@ -111,7 +112,7 @@
 
       animations {
         enabled = true
-        
+
         bezier = fluent_decel, 0, 0.2, 0.4, 1
         bezier = easeOutCirc, 0, 0.55, 0.45, 1
         bezier = easeOutCubic, 0.33, 1, 0.68, 1
@@ -121,7 +122,7 @@
         animation = windowsIn, 1, 3, easeOutCubic, popin 30% # window open
         animation = windowsOut, 1, 3, fluent_decel, popin 70% # window close.
         animation = windowsMove, 1, 2, easeinoutsine, slide # everything in between, moving, dragging, resizing.
-        
+
         # Fade
         animation = fadeIn, 1, 3, easeOutCubic  # fade in (open) -> layers and windows
         animation = fadeOut, 1, 2, easeOutCubic # fade out (close) -> layers and windows
@@ -135,7 +136,7 @@
 
 
       # ----------------------------------------------------------------
-      
+
       # show keybinds list
       bind = $mainMod, F1, exec, show-keybinds
 
@@ -163,17 +164,17 @@
       bind = $mainMod, W,exec, pkill wofi || wallpaper-picker
       bind = $mainMod SHIFT, W, exec, floorp
       bind = $mainMod,V,exec,cliphist list | wofi --show dmenu -H 600 -W 900   | cliphist decode | wl-copy
-      
+
       # screenshot
       bind = $mainMod, Print, exec, grimblast --notify --cursor save area ~/Pictures/$(date +'%Y-%m-%d-At-%Ih%Mm%Ss').png
       bind = ,Print, exec, grimblast --notify --cursor  copy area
-      
+
       # switch focus
       bind = $mainMod, left, movefocus, l
       bind = $mainMod, right, movefocus, r
       bind = $mainMod, up, movefocus, u
       bind = $mainMod, down, movefocus, d
-      
+
       # switch workspace
       bind = $mainMod, 1, workspace, 1
       bind = $mainMod, 2, workspace, 2
@@ -185,7 +186,7 @@
       bind = $mainMod, 8, workspace, 8
       bind = $mainMod, 9, workspace, 9
       bind = $mainMod, 0, workspace, 10
-      
+
       # same as above, but switch to the workspace
       bind = $mainMod SHIFT, 1, movetoworkspacesilent, 1     # movetoworkspacesilent
       bind = $mainMod SHIFT, 2, movetoworkspacesilent, 2
@@ -198,7 +199,7 @@
       bind = $mainMod SHIFT, 9, movetoworkspacesilent, 9
       bind = $mainMod SHIFT, 0, movetoworkspacesilent, 10
       bind = $mainMod CTRL, c, movetoworkspace, empty
-      
+
       # window control
       bind = $mainMod SHIFT, left, movewindow, l
       bind = $mainMod SHIFT, right, movewindow, r
@@ -212,7 +213,7 @@
       bind = $mainMod ALT, right, moveactive, 80 0
       bind = $mainMod ALT, up, moveactive, 0 -80
       bind = $mainMod ALT, down, moveactive, 0 80
-      
+
       # media and volume controls
       bind = ,XF86AudioRaiseVolume,exec, pamixer -i 2
       bind = ,XF86AudioLowerVolume,exec, pamixer -d 2
@@ -223,11 +224,11 @@
       bind = , XF86AudioStop, exec, playerctl stop
       bind = $mainMod, mouse_down, workspace, e-1
       bind = $mainMod, mouse_up, workspace, e+1
-      
+
       # mouse binding
       bindm = $mainMod, mouse:272, movewindow
       bindm = $mainMod, mouse:273, resizewindow
-      
+
       # windowrule
       windowrule = float,audacious
       windowrule = workspace 8 silent, audacious
@@ -260,7 +261,7 @@
       windowrule = size 1200 725,mpv
       windowrulev2 = idleinhibit focus, class:^(mpv)$
       windowrulev2 = idleinhibit fullscreen, class:^(firefox)$
-    
+
       windowrule = float,title:^(float_kitty)$
       windowrule = center,title:^(float_kitty)$
       windowrule = size 950 600,title:^(float_kitty)$
