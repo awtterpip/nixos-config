@@ -9,6 +9,7 @@
     entr # perform action when file change
     file # Show file information
     fzf # fuzzy finder
+    legendary-gl
     jdk17 # java
     libreoffice
     nitch # systhem fetch util
