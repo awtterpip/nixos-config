@@ -1,7 +1,8 @@
 {
   hostname,
   ...
-}: {
+}:
+{
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -9,7 +10,10 @@
     syntaxHighlighting.enable = true;
     oh-my-zsh = {
       enable = true;
-      plugins = ["git" "fzf"];
+      plugins = [
+        "git"
+        "fzf"
+      ];
     };
     initExtraFirst = ''
       DISABLE_MAGIC_FUNCTIONS=true
@@ -27,7 +31,7 @@
       dsize = "du -hs";
       findw = "grep -rl";
 
-      l = "eza --icons  -a --group-directories-first -1"; #EZA_ICON_SPACING=2
+      l = "eza --icons  -a --group-directories-first -1"; # EZA_ICON_SPACING=2
       ll = "eza --icons  -a --group-directories-first -1 --no-user --long";
       tree = "eza --icons --tree --group-directories-first";
 
@@ -37,7 +41,7 @@
       nix-shell = "nix-shell --run zsh";
       nix-switch = "sudo nixos-rebuild switch --impure --flake ~/.nixos#${hostname}";
       nix-switchu = "sudo nixos-rebuild switch --upgrade --impure --flake ~/.nixos#${hostname}";
-      nix-flake-update = "sudo nix flake update ~/.nixos#";
+      nix-flake-update = "sudo nix flake update --flake ~/.nixos";
       nix-clean = "sudo nix-collect-garbage && sudo nix-collect-garbage -d && sudo rm /nix/var/nix/gcroots/auto/* && nix-collect-garbage && nix-collect-garbage -d";
       # nix-clean = "sudo nix-collect-garbage -d";
       # nix-cleanold = "sudo nix-collect-garbage --delete-old";
