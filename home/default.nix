@@ -1,6 +1,4 @@
-{
-  ...
-}: {
+{...}: {
   imports =
     [(import ./audacious)]
     ++ [(import ./bat.nix)]
@@ -28,6 +26,7 @@
     # ++ [(import ./unity)]
     ++ [(import ./vscodium.nix)]
     ++ [(import ./waybar)]
+    ++ [(import ./wivrn.nix)]
     ++ [(import ./wofi)]
     ++ [(import ./zsh.nix)]
     ++ [
