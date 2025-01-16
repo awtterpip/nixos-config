@@ -44,6 +44,7 @@
     chromium
     sidequest
     ncspot
+    osu-lazer-bin
     qpwgraph
     librepcb
     # game things
