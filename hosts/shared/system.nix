@@ -40,7 +40,6 @@
     lutris
     sunshine
     moonlight-qt
-    unityhub
     chromium
     sidequest
     ncspot
