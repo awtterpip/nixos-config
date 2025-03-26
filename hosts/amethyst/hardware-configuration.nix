@@ -22,6 +22,11 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
+  fileSystems."/steam-library" = {
+    device = "/dev/disk/by-uuid/001e1227-704e-4a1c-8862-f2ef063744f2";
+    fsType = "ext4";
+  };
+
   fileSystems."/" = {
     device = "UUID=ab24c7f4-c3d4-4ba3-a316-37516a83cf8d";
     fsType = "bcachefs";
