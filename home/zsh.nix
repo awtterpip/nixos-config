@@ -71,6 +71,8 @@
       # python
       piv = "python -m venv .venv";
       psv = "source .venv/bin/activate";
+
+      hyprinflation = "figlet 'april fools lmao' && sleep 2 && mpv /home/piper/Downloads/bowserfart.mp4 && /run/current-system/sw/bin/Hyprland";
     };
   };
 

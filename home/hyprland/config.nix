@@ -1,4 +1,5 @@
-{self, ...}: {
+{ self, ... }:
+{
   wayland.windowManager.hyprland = {
     extraConfig = "
       $mainMod = SUPER
@@ -13,7 +14,7 @@
       exec-once = hash dbus-update-activation-environment 2>/dev/null &
       exec-once = dbus-update-activation-environment --systemd &
       exec-once = nm-applet &
-      exec-once = swaybg -m fill -i '${self}/wallpaper.jpg' &
+      exec-once = swaybg -m fill -i '/home/piper/Downloads/omnimantwerk.jpg' &
       exec-once = sleep 1 && swaylock
       exec-once = hyprctl setcursor Nordzy-cursors 22 &
       exec-once = waybar &
@@ -98,7 +99,7 @@
 
           xray = true
         }
-        
+
         shadow {
           enabled = true
           ignore_window = true
@@ -108,7 +109,7 @@
           color = rgba(00000055)
         }
 
-        
+
       }
 
 

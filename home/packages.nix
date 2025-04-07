@@ -10,6 +10,7 @@
     file # Show file information
     fzf # fuzzy finder
     legendary-gl
+    bitwig-studio5
     jdk17 # java
     libreoffice
     nitch # systhem fetch util
@@ -38,7 +39,7 @@
     nixfmt-rfc-style
     # Python
     python3
-
+    figlet
     bleachbit # cache cleaner
     cmatrix
     gparted # partition manager
