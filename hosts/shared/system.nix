@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   nix = {
     settings = {
       auto-optimise-store = true;
@@ -10,7 +11,7 @@
         "https://nix-gaming.cachix.org"
         "https://hyprland.cachix.org"
       ];
-      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+      trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
     };
     gc = {
       automatic = true;
@@ -31,6 +32,7 @@
     wivrn
 
     # system apps
+    carla
     r2modman
     baobab
     krita
@@ -79,7 +81,7 @@
             # For `appimageTools.wrapType2`, `pname` determines the binary's name in `bin/`.
             pname = appimageBinName;
             inherit version;
-            extraPkgs = _: [];
+            extraPkgs = _: [ ];
           };
 
           # The `QT_QPA_PLATFORM=xcb` fixes Wayland support, see https://github.com/NixOS/nixpkgs/issues/186570#issuecomment-2526277637
@@ -135,7 +137,7 @@
                 "model/gltf+json"
                 "model/vnd.collada+xml+zip"
               ];
-              categories = ["Graphics"];
+              categories = [ "Graphics" ];
               keywords = [
                 "3D"
                 "Printing"
@@ -155,7 +157,7 @@
             runHook postInstall
           '';
 
-          passthru.updateScript = pkgs.nix-update-script {extraArgs = ["--version-regex=([56789].+)"];};
+          passthru.updateScript = pkgs.nix-update-script { extraArgs = [ "--version-regex=([56789].+)" ]; };
 
           meta = {
             description = "3D printing software";
@@ -165,7 +167,7 @@
               Cura converts 3D models into paths for a 3D printer. It prepares your print for maximum accuracy, minimum printing time and good reliability with many extra features that make your print come out great.
             '';
             license = pkgs.lib.licenses.lgpl3Plus;
-            platforms = ["x86_64-linux"];
+            platforms = [ "x86_64-linux" ];
             mainProgram = "cura";
             maintainers = with pkgs.lib.maintainers; [
               pbek
@@ -184,7 +186,8 @@
             hash = "sha256-i/CG+zD64cwnu0z1BRkRn7Wm67KszE+wZ5geeAvrvMY=";
           };
 
-          nativeBuildInputs = with pkgs;
+          nativeBuildInputs =
+            with pkgs;
             [
               openssl
               glib
@@ -195,7 +198,8 @@
             ]
             ++ prev.nativeBuildInputs;
 
-          buildInputs = with pkgs;
+          buildInputs =
+            with pkgs;
             [
               openssl
               qt6.full
