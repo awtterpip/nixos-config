@@ -2,7 +2,8 @@
   inputs,
   pkgs,
   ...
-}: {
+}:
+{
   home.packages = with pkgs; [
     # swww
     swaybg
@@ -17,13 +18,15 @@
     glib
     wayland
   ];
-  systemd.user.targets.hyprland-session.Unit.Wants = ["xdg-desktop-autostart.target"];
+  systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland = {
       enable = true;
       # hidpi = true;
     };
+    package = null;
+    portalPackage = null;
     # enableNvidiaPatches = false;
     systemd.enable = true;
   };

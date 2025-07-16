@@ -4,15 +4,13 @@
     extraConfig = "
       $mainMod = SUPER
 
-      monitor=DP-3,highres,0x0,1,vrr,2
-      monitor=,highres,auto,1
 
       # autostart
       exec-once = wl-paste --watch cliphist store
       exec-once = rm \"$HOME/.cache/cliphist/db\"   #it'll delete history at every restart
-      exec-once = systemctl --user import-environment &
+      exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
       exec-once = hash dbus-update-activation-environment 2>/dev/null &
-      exec-once = dbus-update-activation-environment --systemd &
+      exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=Hyprland
       exec-once = nm-applet &
       exec-once = swaybg -m fill -i '/home/piper/Downloads/omnimantwerk.jpg' &
       exec-once = sleep 1 && swaylock
@@ -47,7 +45,7 @@
         border_size = 2
         col.active_border = rgb(cba6f7) rgb(94e2d5) 45deg
         col.inactive_border = 0x00000000
-        border_part_of_window = true
+        # border_part_of_window = true
 
         # gaps_in = 5
         # gaps_out = 10
@@ -233,14 +231,14 @@
       bindm = $mainMod, mouse:273, resizewindow
 
       # windowrule
-      windowrule = float,audacious
-      windowrule = workspace 8 silent, audacious
-      windowrule = pin,wofi
-      windowrule = float,wofi
-      windowrule = noborder,wofi
-      windowrule = tile, neovide
-      windowrule = idleinhibit focus,mpv
-      windowrule = float,udiskie
+      windowrule = float,class:audacious
+      windowrule = workspace 8 silent, class:audacious
+      windowrule = pin,class:wofi
+      windowrule = float,class:wofi
+      windowrule = noborder,class:wofi
+      windowrule = tile, class:neovide
+      windowrule = idleinhibit focus,class:mpv
+      windowrule = float,class:udiskie
       windowrule = float,title:^(Transmission)$
       windowrule = float,title:^(Volume Control)$
       windowrule = float,title:^(Firefox — Sharing Indicator)$
@@ -251,17 +249,17 @@
       windowrulev2 = opacity 1.0 override 1.0 override, title:^(Picture-in-Picture)$
       # windowrulev2 = opacity 1.0 override 1.0 override, title:^(.*YouTube.*)$
       windowrulev2 = pin, title:^(Picture-in-Picture)$
-      windowrule = float,imv
-      windowrule = center,imv
-      windowrule = size 1200 725,imv
+      windowrule = float,class:imv
+      windowrule = center,class:imv
+      windowrule = size 1200 725,class:imv
       windowrulev2 = opacity 1.0 override 1.0 override, title:^(.*imv.*)$
-      windowrule = float,mpv
-      windowrule = center,mpv
+      windowrule = float,class:mpv
+      windowrule = center,class:mpv
       windowrulev2 = opacity 1.0 override 1.0 override, title:^(.*mpv.*)$
-      windowrule = tile,Aseprite
+      windowrule = tile,class:Aseprite
       windowrulev2 = opacity 1.0 override 1.0 override, class:(Aseprite)
       windowrulev2 = opacity 1.0 override 1.0 override, class:(Unity)
-      windowrule = size 1200 725,mpv
+      windowrule = size 1200 725,class:mpv
       windowrulev2 = idleinhibit focus, class:^(mpv)$
       windowrulev2 = idleinhibit fullscreen, class:^(firefox)$
 
