@@ -9,6 +9,13 @@
       proton-ge-bin
     ];
     protontricks.enable = true;
+    extraPackages = with pkgs; [
+      libnss_nis
+      nss
+      (python3.withPackages (python-pkgs: [
+        python-pkgs.pillow
+      ]))
+    ];
   };
   programs.gamemode.enable = true;
 }

@@ -10,7 +10,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    armorpaint.url = "git+https://codeberg.org/motte/armorpaint-nix";
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # armorpaint.url = "git+https://codeberg.org/motte/armorpaint-nix";
     catppuccin-starship = {
       url = "github:catppuccin/starship";
       flake = false;

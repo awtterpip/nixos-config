@@ -8,7 +8,6 @@
     ++ [ (import ./dirs.nix) ]
     # ++ [(import ./cava)]
     ++ [ (import ./discord) ] # discord with catppuccin theme
-    ++ [ (import ./floorp) ] # firefox based browser
     # ++ [(import ./gaming)]
     ++ [ (import ./git.nix) ]
     ++ [ (import ./direnv.nix) ]

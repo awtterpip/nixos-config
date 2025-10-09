@@ -145,7 +145,7 @@
       bind = $mainMod, Return, exec, kitty
       bind = ALT, Return, exec, kitty --title float_kitty
       bind = $mainMod SHIFT, Return, exec, kitty --start-as=fullscreen -o 'font_size=16'
-      bind = $mainMod, B, exec, hyprctl dispatch exec '[workspace 1 silent] floorp'
+      bind = $mainMod, B, exec, hyprctl dispatch exec '[workspace 1 silent] zen'
       bind = $mainMod, Q, killactive,
       bind = $mainMod SHIFT, Q,exit
       bind = $mainMod, F, fullscreen, 0
@@ -163,7 +163,7 @@
       bind = $mainMod, C ,exec, hyprpicker -a
       bind = $mainMod, G,exec, $HOME/.local/bin/toggle_layout
       bind = $mainMod, W,exec, pkill wofi || wallpaper-picker
-      bind = $mainMod SHIFT, W, exec, floorp
+      bind = $mainMod SHIFT, W, exec, zen
       bind = $mainMod,V,exec,cliphist list | wofi --show dmenu -H 600 -W 900   | cliphist decode | wl-copy
 
       # screenshot

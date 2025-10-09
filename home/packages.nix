@@ -12,7 +12,7 @@
     legendary-gl
     bitwig-studio5
     jdk17 # java
-    libreoffice
+
     nitch # systhem fetch util
     nix-prefetch-github
     pipx # Install Python applications in isolated environments
