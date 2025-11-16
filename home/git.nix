@@ -2,12 +2,14 @@
   pkgs,
   username,
   ...
-}: {
-  home.file.".ssh/allowed_signers".text = "* ${builtins.readFile /home/${username}/.ssh/id_ed25519.pub}";
+}:
+{
+  home.file.".ssh/allowed_signers".text =
+    "* ${builtins.readFile /home/${username}/.ssh/id_ed25519.pub}";
 
   programs.git = {
     enable = true;
-
+    lfs.enable = true;
     userName = "awtterpip";
     userEmail = "awtterpip@gmail.com";
 
@@ -19,5 +21,8 @@
     };
   };
 
-  home.packages = [pkgs.gh pkgs.git-lfs];
+  home.packages = [
+    pkgs.gh
+    pkgs.git-lfs
+  ];
 }

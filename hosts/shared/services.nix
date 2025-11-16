@@ -7,6 +7,10 @@
     enable = true;
     defaultRuntime = true; # Register as default OpenXR runtime
   };
+  systemd.user.services.monado.environment = {
+    XRT_COMPOSITOR_COMPUTE = "1";
+    STEAMVR_LH_ENABLE = "1";
+  };
 
   services.wivrn = {
     # enable = true;
