@@ -6,6 +6,7 @@
 
 
       # autostart
+      exec-once = fix-steam &
       exec-once = wl-paste --watch cliphist store
       exec-once = rm \"$HOME/.cache/cliphist/db\"   #it'll delete history at every restart
       exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
@@ -26,7 +27,6 @@
       }
 
       misc {
-        disable_autoreload = true
         disable_hyprland_logo = true
         always_follow_on_dnd = true
         layers_hog_keyboard_focus = true
@@ -215,6 +215,10 @@
       bind = $mainMod ALT, up, moveactive, 0 -80
       bind = $mainMod ALT, down, moveactive, 0 80
 
+      bind = $mainMod, KP_Enter, exec, pamixer --default-source -u
+      bind = ,KP_Enter,exec,pamixer --default-source -u
+      bindr = ,KP_Enter,exec,pamixer --default-source -m
+
       # media and volume controls
       bind = ,XF86AudioRaiseVolume,exec, pamixer -i 2
       bind = ,XF86AudioLowerVolume,exec, pamixer -d 2
@@ -231,41 +235,27 @@
       bindm = $mainMod, mouse:273, resizewindow
 
       # windowrule
-      windowrule = float,class:audacious
-      windowrule = workspace 8 silent, class:audacious
-      windowrule = pin,class:wofi
-      windowrule = float,class:wofi
-      windowrule = noborder,class:wofi
-      windowrule = tile, class:neovide
-      windowrule = idleinhibit focus,class:mpv
-      windowrule = float,class:udiskie
-      windowrule = float,title:^(Transmission)$
-      windowrule = float,title:^(Volume Control)$
-      windowrule = float,title:^(Firefox — Sharing Indicator)$
-      windowrule = move 0 0,title:^(Firefox — Sharing Indicator)$
-      windowrule = size 700 450,title:^(Volume Control)$
-      windowrule = move 40 55%,title:^(Volume Control)$
+      windowrule = match:class audacious,float on,workspace 8 silent
+      windowrule = match:class wofi,pin on,float on,border_size 0
+      windowrule = match:class neovide, tile on
+      windowrule = match:class mpv, idle_inhibit focus, float on, center on, size 1200 725
+      windowrule = match:class udiski, float on
+      windowrule = match:title ^(Transmission)$, float on
+      windowrule = match:title ^(Volume Control)$, float on, size 700 450, move 40 55%
+      windowrule = match:title ^(Firefox — Sharing Indicator)$,float on, move 0 0
       windowrulev2 = float, title:^(Picture-in-Picture)$
       windowrulev2 = opacity 1.0 override 1.0 override, title:^(Picture-in-Picture)$
       # windowrulev2 = opacity 1.0 override 1.0 override, title:^(.*YouTube.*)$
       windowrulev2 = pin, title:^(Picture-in-Picture)$
-      windowrule = float,class:imv
-      windowrule = center,class:imv
-      windowrule = size 1200 725,class:imv
+      windowrule = match:class imv, float on, center on, size 1200 725
       windowrulev2 = opacity 1.0 override 1.0 override, title:^(.*imv.*)$
-      windowrule = float,class:mpv
-      windowrule = center,class:mpv
       windowrulev2 = opacity 1.0 override 1.0 override, title:^(.*mpv.*)$
-      windowrule = tile,class:Aseprite
       windowrulev2 = opacity 1.0 override 1.0 override, class:(Aseprite)
       windowrulev2 = opacity 1.0 override 1.0 override, class:(Unity)
-      windowrule = size 1200 725,class:mpv
       windowrulev2 = idleinhibit focus, class:^(mpv)$
       windowrulev2 = idleinhibit fullscreen, class:^(firefox)$
 
-      windowrule = float,title:^(float_kitty)$
-      windowrule = center,title:^(float_kitty)$
-      windowrule = size 950 600,title:^(float_kitty)$
+      windowrule = match:title ^(float_kitty)$, float on true, center on, size 950 600
 
       windowrulev2 = float,class:^(pavucontrol)$
       windowrulev2 = float,class:^(SoundWireServer)$
@@ -280,6 +270,7 @@
       windowrulev2 = float,title:^(branchdialog)$
       windowrulev2 = float,title:^(Confirm to replace files)$
       windowrulev2 = float,title:^(File Operation Progress)$
+
     ";
   };
 }

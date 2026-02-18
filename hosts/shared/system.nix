@@ -61,12 +61,23 @@
     lzip
     alejandra
     git
+    android-tools
+    discord
+    libresprite
     # wivrn
+
+    stremio
+    (retroarch.withCores (
+      cores: with cores; [
+        beetle-psx-hw
+      ]
+    ))
+    osu-lazer-bin
 
     # armorpaint
     # system apps
     carla
-    r2modman
+    gale
     baobab
     krita
     rpcs3
@@ -88,7 +99,7 @@
     alcom
     inputs.zen-browser.packages.${pkgs.system}.default
     # game things
-    wlx-overlay-s
+    wayvr
     mangohud
   ];
 
@@ -455,6 +466,10 @@
       })
     ];
     config.allowUnfree = true;
+    config.permittedInsecurePackages = [
+      "qtwebengine-5.15.19"
+    ];
+
   };
   system.stateVersion = "23.11";
 }
